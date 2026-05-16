@@ -98,27 +98,12 @@ export default async function HomePage({
         <SectionHead num="02 /" label={dict.sectionLabels.market} />
         <h2 className="section-title">{dict.market.title}</h2>
         <p className="section-body">{dict.market.body}</p>
-        <div className="anchors">
-          {dict.market.anchors.map((a) => (
-            <div className="anchor" key={a.label}>
-              <div className="anchor-label">{a.label}</div>
-              <div className="anchor-value">{a.value}</div>
-              <div className="anchor-meta">
-                <span>{a.date}</span>
-                <a
-                  className="anchor-source"
-                  href={a.sourceUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title={a.sourceUrl}
-                >
-                  {a.sourceHost} ↗
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
         <div className="note">{dict.market.note}</div>
+        <p style={{ marginTop: 18 }}>
+          <Link href={`/${locale}/market`} className="btn">
+            {dict.marketSeeAll}
+          </Link>
+        </p>
       </section>
 
       <section className="block" id="approach">
