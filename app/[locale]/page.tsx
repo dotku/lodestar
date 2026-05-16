@@ -72,6 +72,18 @@ export default async function HomePage({
       </nav>
 
       <header className="hero">
+        <figure className="hero-video">
+          <video
+            src={videos.hero.src}
+            poster={videos.hero.poster}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            aria-hidden="true"
+          />
+        </figure>
         <span className="hero-badge">{dict.heroBadge}</span>
         <h1 className="hero-title">{dict.heroTitle}</h1>
         <p className="hero-subtitle">{dict.heroSubtitle}</p>
@@ -87,18 +99,6 @@ export default async function HomePage({
           <a className="btn btn-primary" href="#demo">{dict.ctaPrimary} →</a>
           <a className="btn" href="#problem">{dict.ctaSecondary}</a>
         </div>
-        <figure className="hero-video">
-          <video
-            src={videos.hero.src}
-            poster={videos.hero.poster}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            aria-hidden="true"
-          />
-        </figure>
       </header>
 
       <section className="block" id="problem">

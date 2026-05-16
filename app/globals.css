@@ -597,7 +597,8 @@ ul.bullets strong { color: var(--fg); font-weight: 600; }
 }
 
 .hero-video {
-  margin-top: clamp(28px, 4vw, 44px);
+  margin-top: 0;
+  margin-bottom: clamp(28px, 4vw, 44px);
 }
 
 /* ===== Demo ===== */
