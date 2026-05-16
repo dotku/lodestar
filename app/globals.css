@@ -556,6 +556,48 @@ ul.bullets strong { color: var(--fg); font-weight: 600; }
 
 .comp-wrap { overflow-x: auto; }
 
+@media (max-width: 640px) {
+  .comp-wrap { overflow-x: visible; }
+  .comp-table {
+    border: none;
+    font-size: 0.92rem;
+  }
+  .comp-table thead { display: none; }
+  .comp-table tbody,
+  .comp-table tr,
+  .comp-table td {
+    display: block;
+    width: 100%;
+  }
+  .comp-table tr {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    background: var(--bg-card);
+  }
+  .comp-table td {
+    padding: 0;
+    border-top: none;
+  }
+  .comp-table td:first-child {
+    font-size: 1rem;
+    margin-bottom: 2px;
+  }
+  .comp-table td:nth-child(2) {
+    font-size: 0.7rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+  .comp-table td:last-child {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: var(--fg-muted);
+  }
+}
+
 /* ===== Compliance ===== */
 .compliance {
   display: grid;
