@@ -68,7 +68,7 @@ body::before {
   justify-content: space-between;
   gap: 16px;
   flex-wrap: wrap;
-  margin-bottom: clamp(40px, 7vw, 80px);
+  margin-bottom: clamp(16px, 3vw, 28px);
   padding-bottom: 16px;
   border-bottom: 1px solid var(--border);
 }
