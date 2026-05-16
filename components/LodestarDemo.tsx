@@ -69,6 +69,10 @@ export function LodestarDemo({
     setOutput("");
     setActiveId(null);
     setError(null);
+    if (typeof window !== "undefined") {
+      const target = document.getElementById("demo");
+      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   }
 
   return (
