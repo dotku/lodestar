@@ -250,7 +250,7 @@ export default async function HomePage({
         <p>{dict.contactBody}</p>
         <p>
           <strong>{dict.contactEmailLabel}: </strong>
-          <a href="mailto:hello@lodestar.demo.sarl">hello@lodestar.demo.sarl</a>
+          <a href="mailto:richard.ma.pgd@gmail.com">richard.ma.pgd@gmail.com</a>
         </p>
       </section>
 
