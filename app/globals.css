@@ -572,6 +572,37 @@ ul.bullets strong { color: var(--fg); font-weight: 600; }
   .compliance-status { grid-column: 2; padding-left: 0; }
 }
 
+/* ===== Videos ===== */
+.hero-video,
+.section-video,
+.demo-video {
+  margin: clamp(20px, 3vw, 32px) 0 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+  background: var(--bg);
+  box-shadow: 0 0 0 1px rgba(124, 140, 255, 0.06);
+}
+
+.hero-video video,
+.section-video video,
+.demo-video video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.hero-video {
+  margin-top: clamp(28px, 4vw, 44px);
+}
+
+.demo-video {
+  margin-top: clamp(16px, 2vw, 20px);
+  max-width: 480px;
+}
+
 /* ===== Demo ===== */
 .demo {
   padding: 0;

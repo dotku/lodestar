@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { locales, getDict, displayLocale, type Locale } from "../../lib/i18n";
+import { videos } from "../../lib/videos";
 import { LodestarDemo } from "../../components/LodestarDemo";
 import { BrandMark } from "../../components/BrandMark";
 
@@ -86,6 +87,18 @@ export default async function HomePage({
           <a className="btn btn-primary" href="#demo">{dict.ctaPrimary} →</a>
           <a className="btn" href="#problem">{dict.ctaSecondary}</a>
         </div>
+        <figure className="hero-video">
+          <video
+            src={videos.hero.src}
+            poster={videos.hero.poster}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            aria-hidden="true"
+          />
+        </figure>
       </header>
 
       <section className="block" id="problem">
@@ -113,6 +126,18 @@ export default async function HomePage({
         <SectionHead num="03 /" label={dict.sectionLabels.approach} />
         <h2 className="section-title">{dict.approach.title}</h2>
         <p className="section-body">{dict.approach.body}</p>
+        <figure className="section-video">
+          <video
+            src={videos.approach.src}
+            poster={videos.approach.poster}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            aria-hidden="true"
+          />
+        </figure>
         <div className="pillars">
           {dict.approach.pillars.map((p, i) => (
             <article className="pillar" key={p.name}>
@@ -193,6 +218,18 @@ export default async function HomePage({
             <p className="section-body" style={{ marginBottom: 0 }}>
               {dict.demoSubtitle}
             </p>
+            <figure className="demo-video">
+              <video
+                src={videos.demoIntro.src}
+                poster={videos.demoIntro.poster}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                aria-hidden="true"
+              />
+            </figure>
           </div>
           {demoEnabled ? (
             <div className="demo-body">
