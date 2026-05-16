@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { locales, getDict, type Locale } from "../../lib/i18n";
+import { locales, getDict, displayLocale, type Locale } from "../../lib/i18n";
 import { LodestarDemo } from "../../components/LodestarDemo";
 import { BrandMark } from "../../components/BrandMark";
 
@@ -64,7 +64,7 @@ export default async function HomePage({
               className="lang-link"
               aria-current={l === locale ? "page" : undefined}
             >
-              {l.toUpperCase()}
+              {displayLocale(l)}
             </Link>
           ))}
         </div>

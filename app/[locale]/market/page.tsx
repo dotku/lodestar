@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { locales, getDict, type Locale } from "../../../lib/i18n";
+import { locales, getDict, displayLocale, type Locale } from "../../../lib/i18n";
 import { BrandMark } from "../../../components/BrandMark";
 
 type Params = { locale: string };
@@ -57,7 +57,7 @@ export default async function MarketPage({
               className="lang-link"
               aria-current={l === locale ? "page" : undefined}
             >
-              {l.toUpperCase()}
+              {displayLocale(l)}
             </Link>
           ))}
         </div>

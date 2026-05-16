@@ -539,3 +539,12 @@ export const dictionaries: Record<Locale, Dict> = {
 export function getDict(locale: string): Dict {
   return dictionaries[(locale as Locale) in dictionaries ? (locale as Locale) : defaultLocale];
 }
+
+const LOCALE_LABELS: Record<Locale, string> = {
+  en: "EN",
+  ja: "文",
+};
+
+export function displayLocale(l: string): string {
+  return LOCALE_LABELS[l as Locale] ?? l.toUpperCase();
+}
