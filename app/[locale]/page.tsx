@@ -204,33 +204,22 @@ export default async function HomePage({
 
       <section className="block" id="demo">
         <SectionHead num="07 /" label="DEMO · INTERACTIVE" />
+        <h2 className="section-title">{dict.demoTitle}</h2>
+        <p className="section-body">{dict.demoSubtitle}</p>
+        <figure className="section-video">
+          <video
+            src={videos.demoIntro.src}
+            poster={videos.demoIntro.poster}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            aria-hidden="true"
+          />
+        </figure>
         <div className="demo">
-          <div className="demo-head">
-            <div className="demo-head-label">
-              LIVE · {refCode}
-            </div>
-            <h2
-              className="section-title"
-              style={{ marginBottom: 8, marginTop: 0 }}
-            >
-              {dict.demoTitle}
-            </h2>
-            <p className="section-body" style={{ marginBottom: 0 }}>
-              {dict.demoSubtitle}
-            </p>
-            <figure className="demo-video">
-              <video
-                src={videos.demoIntro.src}
-                poster={videos.demoIntro.poster}
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                aria-hidden="true"
-              />
-            </figure>
-          </div>
+          <div className="demo-head-label">LIVE · {refCode}</div>
           {demoEnabled ? (
             <div className="demo-body">
               <LodestarDemo

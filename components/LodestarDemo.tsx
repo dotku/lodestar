@@ -70,8 +70,13 @@ export function LodestarDemo({
     setActiveId(null);
     setError(null);
     if (typeof window !== "undefined") {
-      const target = document.getElementById("demo");
-      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+      // Defer past React commit + browser paint so we scroll to the new
+      // (shorter) document layout, not the pre-reset position.
+      setTimeout(() => {
+        document
+          .getElementById("demo")
+          ?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 60);
     }
   }
 
