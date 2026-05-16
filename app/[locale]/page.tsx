@@ -218,7 +218,7 @@ export default async function HomePage({
             aria-hidden="true"
           />
         </figure>
-        <div className="demo">
+        <div className="demo" id="demo-live">
           <div className="demo-head-label">LIVE · {refCode}</div>
           {demoEnabled ? (
             <div className="demo-body">

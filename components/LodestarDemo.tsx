@@ -74,7 +74,7 @@ export function LodestarDemo({
       // (shorter) document layout, not the pre-reset position.
       setTimeout(() => {
         document
-          .getElementById("demo")
+          .getElementById("demo-live")
           ?.scrollIntoView({ behavior: "smooth", block: "start" });
       }, 60);
     }

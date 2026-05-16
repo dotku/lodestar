@@ -606,6 +606,7 @@ ul.bullets strong { color: var(--fg); font-weight: 600; }
   background: var(--bg-soft);
   border: 1px solid var(--border-strong);
   margin-bottom: clamp(56px, 9vw, 96px);
+  scroll-margin-top: 16px;
 }
 
 .demo-head-label {
