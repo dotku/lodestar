@@ -72,6 +72,23 @@ export default async function HomePage({
       </nav>
 
       <header className="hero">
+        <div className="hero-text">
+          <span className="hero-badge">{dict.heroBadge}</span>
+          <h1 className="hero-title">{dict.heroTitle}</h1>
+          <p className="hero-subtitle">{dict.heroSubtitle}</p>
+          <div className="hero-pills">
+            {dict.heroPills.map((p) => (
+              <div className="pill" key={p.label}>
+                <span className="pill-label">{p.label}</span>
+                <span className="pill-value">{p.value}</span>
+              </div>
+            ))}
+          </div>
+          <div className="cta-row">
+            <a className="btn btn-primary" href="#demo">{dict.ctaPrimary} →</a>
+            <a className="btn" href="#problem">{dict.ctaSecondary}</a>
+          </div>
+        </div>
         <figure className="hero-video">
           <video
             src={videos.hero.src}
@@ -84,21 +101,6 @@ export default async function HomePage({
             aria-hidden="true"
           />
         </figure>
-        <span className="hero-badge">{dict.heroBadge}</span>
-        <h1 className="hero-title">{dict.heroTitle}</h1>
-        <p className="hero-subtitle">{dict.heroSubtitle}</p>
-        <div className="hero-pills">
-          {dict.heroPills.map((p) => (
-            <div className="pill" key={p.label}>
-              <span className="pill-label">{p.label}</span>
-              <span className="pill-value">{p.value}</span>
-            </div>
-          ))}
-        </div>
-        <div className="cta-row">
-          <a className="btn btn-primary" href="#demo">{dict.ctaPrimary} →</a>
-          <a className="btn" href="#problem">{dict.ctaSecondary}</a>
-        </div>
       </header>
 
       <section className="block" id="problem">
