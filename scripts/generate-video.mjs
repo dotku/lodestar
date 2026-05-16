@@ -114,11 +114,15 @@ while (Date.now() - startedAt < MAX_POLL_MS) {
   const elapsed = ((Date.now() - startedAt) / 1000).toFixed(0);
   console.log(`  · ${elapsed}s status=${status || "?"}`);
 
-  if (status === "COMPLETED") {
-    const outputs = data.outputs || data.video_outputs || data.result?.videos || [];
-    const first = Array.isArray(outputs) ? outputs[0] : null;
-    videoUrl = first?.video_url || first?.url || data.video_url || data?.result?.video_url;
-    posterUrl = first?.poster_url || first?.image_url || data.poster_url || null;
+  if (status === "COMPLETED" || status === "SUCCESS" || status === "SUCCEEDED") {
+    const response = data.response;
+    videoUrl =
+      (Array.isArray(response) && typeof response[0] === "string"
+        ? response[0]
+        : null) ||
+      data.video_url ||
+      data.output_url;
+    posterUrl = data.poster_url || null;
     break;
   }
   if (status === "FAILED") {

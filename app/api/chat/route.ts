@@ -13,7 +13,7 @@ Constraints:
 - You make it clear when an estimate is a placeholder versus a defensible public figure.
 - You keep responses tight: 250-450 words. No filler.
 - You always close with a one-line caveat: "Illustrative analysis on synthetic inputs — not a sustainment-decision aid."
-- If the requested locale is "fr", write the entire response in French. Otherwise English.`;
+- If the requested locale is "ja", write the entire response in Japanese (formal です/ます style suitable for J4 staff officers). Otherwise English.`;
 
 export async function POST(req: Request) {
   if (!process.env.AI_GATEWAY_API_KEY) {
@@ -21,7 +21,7 @@ export async function POST(req: Request) {
   }
 
   let prompt: string;
-  let locale: "en" | "fr" = "en";
+  let locale: "en" | "ja" = "en";
   try {
     const body = (await req.json()) as { prompt?: unknown; locale?: unknown };
     if (typeof body?.prompt !== "string" || body.prompt.length === 0) {
@@ -31,7 +31,7 @@ export async function POST(req: Request) {
       return new Response("Prompt too long.", { status: 413 });
     }
     prompt = body.prompt;
-    if (body.locale === "fr") locale = "fr";
+    if (body.locale === "ja") locale = "ja";
   } catch {
     return new Response("Invalid JSON.", { status: 400 });
   }
