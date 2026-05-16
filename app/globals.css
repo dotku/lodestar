@@ -109,28 +109,30 @@ body::before {
   letter-spacing: 0.02em;
 }
 
-.lang-switch {
+@media (max-width: 640px) {
+  .brand-tag { display: none; }
+}
+
+.lang-toggle {
   display: inline-flex;
-  gap: 2px;
-  padding: 3px;
+  align-items: center;
+  justify-content: center;
+  min-width: 38px;
+  height: 32px;
+  padding: 0 10px;
   border: 1px solid var(--border-strong);
   border-radius: 6px;
   background: var(--bg-soft);
+  color: var(--fg);
   font-family: var(--font-mono);
-}
-
-.lang-link {
-  display: inline-block;
-  padding: 5px 10px;
-  border-radius: 4px;
-  font-size: 0.76rem;
-  color: var(--fg-muted);
+  font-size: 0.78rem;
   letter-spacing: 0.06em;
+  text-decoration: none;
 }
 
-.lang-link[aria-current="page"] {
-  background: var(--fg);
-  color: var(--bg);
+.lang-toggle:hover {
+  border-color: var(--accent);
+  text-decoration: none;
 }
 
 /* ===== Hero ===== */

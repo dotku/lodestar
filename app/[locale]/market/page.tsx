@@ -45,22 +45,18 @@ export default async function MarketPage({
           </span>
           <span className="brand-name">Lodestar</span>
         </Link>
-        <div
-          className="lang-switch"
-          role="navigation"
-          aria-label={dict.langLabel}
-        >
-          {locales.map((l) => (
+        {(() => {
+          const next = locales.find((l) => l !== locale) ?? locales[0];
+          return (
             <Link
-              key={l}
-              href={`/${l}/market`}
-              className="lang-link"
-              aria-current={l === locale ? "page" : undefined}
+              href={`/${next}/market`}
+              className="lang-toggle"
+              aria-label={`${dict.langLabel}: ${displayLocale(next)}`}
             >
-              {displayLocale(l)}
+              {displayLocale(next)}
             </Link>
-          ))}
-        </div>
+          );
+        })()}
       </nav>
 
       <header style={{ marginBottom: "clamp(28px, 5vw, 48px)" }}>
