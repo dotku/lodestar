@@ -105,7 +105,15 @@ export default async function HomePage({
               <div className="anchor-value">{a.value}</div>
               <div className="anchor-meta">
                 <span>{a.date}</span>
-                <span>{a.sourceHost}</span>
+                <a
+                  className="anchor-source"
+                  href={a.sourceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={a.sourceUrl}
+                >
+                  {a.sourceHost} ↗
+                </a>
               </div>
             </div>
           ))}

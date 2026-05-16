@@ -3,7 +3,13 @@ export type Locale = (typeof locales)[number];
 export const defaultLocale: Locale = "en";
 
 type Section = { title: string; body: string };
-type Anchor = { label: string; value: string; date: string; sourceHost: string };
+type Anchor = {
+  label: string;
+  value: string;
+  date: string;
+  sourceHost: string;
+  sourceUrl: string;
+};
 type Scenario = { id: string; title: string; prompt: string };
 type Pill = { label: string; value: string };
 
@@ -54,6 +60,11 @@ type Dict = {
   conceptDisclaimer: string;
   footerNotice: string;
   langLabel: string;
+  marketSeeAll: string;
+  marketPageTitle: string;
+  marketPageSubtitle: string;
+  marketBackHome: string;
+  marketTableSource: string;
 };
 
 const sharedScenarios: Scenario[] = [
@@ -110,72 +121,100 @@ const sharedAnchors = (locale: Locale): Anchor[] => {
   };
   const L = labels[locale];
   return [
-    { label: L.dla, value: "$55.4B", date: "FY2025", sourceHost: "dla.mil" },
+    {
+      label: L.dla,
+      value: "$55.4B",
+      date: "FY2025",
+      sourceHost: "dla.mil",
+      sourceUrl:
+        "https://www.dla.mil/Portals/104/Documents/J8Finance/DLA%20FY25%20WCF%20AFR.pdf",
+    },
     {
       label: L.jsdt,
       value: "ASI + Watchtower Labs",
       date: "Jan 2026",
       sourceHost: "diu.mil",
+      sourceUrl:
+        "https://www.diu.mil/latest/two-contracts-awarded-to-modernize-decision-making-for-dows-joint-logistics",
     },
     {
       label: L.palantir,
       value: "$10B / 10 yr",
       date: "Jul 2025",
       sourceHost: "army.mil",
+      sourceUrl:
+        "https://www.army.mil/article/287506/u_s_army_awards_enterprise_service_agreement_to_enhance_military_readiness_and_drive_operational_efficiency",
     },
     {
       label: L.govini,
       value: "$919M / 10 yr",
       date: "Apr 2025",
-      sourceHost: "gsa.gov",
+      sourceHost: "prnewswire.com",
+      sourceUrl:
+        "https://www.prnewswire.com/news-releases/govini-selected-for-919-million-supply-chain-risk-illumination-contract-vehicle-from-general-services-administration-302422014.html",
     },
     {
       label: L.goviniRound,
       value: "$150M @ unicorn",
       date: "Oct 2025",
       sourceHost: "cnbc.com",
+      sourceUrl:
+        "https://www.cnbc.com/2025/10/10/defense-tech-govini-palantir-revenue.html",
     },
     {
       label: L.rune,
       value: "$24M (a16z, Point72)",
       date: "Jul 2025",
       sourceHost: "businesswire.com",
+      sourceUrl:
+        "https://www.businesswire.com/news/home/20250721838717/en/Rune-Technologies-Closes-$24M-Series-A-to-Deploy-AI-Enabled-Software-for-Military-Logistics",
     },
     {
       label: L.anduril,
       value: "$61B (Thrive + a16z)",
       date: "May 2026",
       sourceHost: "bloomberg.com",
+      sourceUrl:
+        "https://www.bloomberg.com/news/articles/2026-05-13/anduril-valued-at-61-billion-in-round-led-by-thrive-andreessen",
     },
     {
       label: L.cmmc,
       value: "Effective",
       date: "Nov 10, 2025",
-      sourceHost: "federalregister.gov",
+      sourceHost: "wiley.law",
+      sourceUrl:
+        "https://www.wiley.law/alert-additional-analysis-on-dods-final-rule-for-the-cybersecurity-maturity-model-certification-program",
     },
     {
       label: L.jwcc,
       value: "$3.9B+ task orders",
       date: "FY2025 cumul.",
-      sourceHost: "disa.mil",
+      sourceHost: "meritalk.com",
+      sourceUrl:
+        "https://www.meritalk.com/articles/disa-reports-growth-in-jwcc-cloud-orders/",
     },
     {
       label: L.tradewinds,
       value: "$3.26B+ awards",
       date: "Feb 2026",
       sourceHost: "tradewindai.com",
+      sourceUrl: "https://www.tradewindai.com/tw-marketplace",
     },
     {
       label: L.cdao,
       value: "Memo signed",
       date: "Aug 14, 2025",
       sourceHost: "ai.mil",
+      sourceUrl:
+        "https://www.ai.mil/Latest/News-Press/PR-View/Article/4281147/cdao-re-alignment-to-usdre-accelerates-ai-transformation-at-dod/",
     },
     {
       label: L.bedrock,
       value: "FedRAMP High + IL4/IL5",
       date: "May 2025",
       sourceHost: "aws.amazon.com",
+      sourceUrl:
+        "https://aws.amazon.com/blogs/publicsector/accelerating-government-innovation-amazon-bedrock-models-get-fedramp-high-and-dod-il-4-5-approval-in-aws-govcloud-us/",
     },
   ];
 };
@@ -331,6 +370,12 @@ export const dictionaries: Record<Locale, Dict> = {
     footerNotice:
       "© Lodestar — concept-stage thesis. Hosted on lodestar.demo.sarl for discussion purposes. All figures sourced from public DoD, GSA, GAO, SEC and industry press.",
     langLabel: "Language",
+    marketSeeAll: "See all 12 anchors with sources →",
+    marketPageTitle: "Market anchors",
+    marketPageSubtitle:
+      "Every figure carries a publicly verifiable source. Ceilings are not-to-exceed; obligated dollars are noted where they differ.",
+    marketBackHome: "← Back to brief",
+    marketTableSource: "Source",
   },
   fr: {
     metaTitle: "Lodestar — soutien logistique IA-natif pour le ministère américain de la Défense",
@@ -482,6 +527,12 @@ export const dictionaries: Record<Locale, Dict> = {
     footerNotice:
       "© Lodestar — thèse au stade concept. Hébergé sur lodestar.demo.sarl à fins de discussion. Tous les chiffres proviennent de sources publiques DoD, GSA, GAO, SEC et de la presse industrielle.",
     langLabel: "Langue",
+    marketSeeAll: "Voir les 12 repères avec sources →",
+    marketPageTitle: "Repères de marché",
+    marketPageSubtitle:
+      "Chaque chiffre est associé à une source publique vérifiable. Les plafonds sont des maximums ; les sommes engagées sont précisées quand elles diffèrent.",
+    marketBackHome: "← Retour à la note",
+    marketTableSource: "Source",
   },
 };
 
