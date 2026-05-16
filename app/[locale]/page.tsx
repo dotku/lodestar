@@ -3,6 +3,7 @@ import { locales, getDict, displayLocale, type Locale } from "../../lib/i18n";
 import { videos } from "../../lib/videos";
 import { LodestarDemo } from "../../components/LodestarDemo";
 import { BrandMark } from "../../components/BrandMark";
+import { ContactForm } from "../../components/ContactForm";
 
 type Params = { locale: string };
 
@@ -248,10 +249,7 @@ export default async function HomePage({
       <section className="contact" id="contact">
         <h2>{dict.contactTitle}</h2>
         <p>{dict.contactBody}</p>
-        <p>
-          <strong>{dict.contactEmailLabel}: </strong>
-          <a href="mailto:richard.ma.pgd@gmail.com">richard.ma.pgd@gmail.com</a>
-        </p>
+        <ContactForm t={dict.contactForm} mailto="richard.ma.pgd@gmail.com" />
       </section>
 
       <div className="concept-disclaimer">{dict.conceptDisclaimer}</div>

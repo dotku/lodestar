@@ -57,6 +57,21 @@ type Dict = {
   contactTitle: string;
   contactBody: string;
   contactEmailLabel: string;
+  contactForm: {
+    name: string;
+    namePlaceholder: string;
+    email: string;
+    emailPlaceholder: string;
+    affiliation: string;
+    affiliationPlaceholder: string;
+    message: string;
+    messagePlaceholder: string;
+    submit: string;
+    sending: string;
+    success: string;
+    error: string;
+    fallback: string;
+  };
   conceptDisclaimer: string;
   footerNotice: string;
   langLabel: string;
@@ -365,6 +380,21 @@ export const dictionaries: Record<Locale, Dict> = {
     contactBody:
       "Operators, capital partners, and prospective government collaborators welcome. Brief notes please — no pitches in the first message.",
     contactEmailLabel: "Email",
+    contactForm: {
+      name: "Name",
+      namePlaceholder: "Your name",
+      email: "Email",
+      emailPlaceholder: "you@example.com",
+      affiliation: "Affiliation",
+      affiliationPlaceholder: "Org / fund / unit (optional)",
+      message: "Message",
+      messagePlaceholder: "Brief note — what brings you to Lodestar?",
+      submit: "Send",
+      sending: "Sending…",
+      success: "Thanks — message received. We'll get back to you.",
+      error: "Couldn't send. Please try again or email us directly.",
+      fallback: "Or email directly:",
+    },
     conceptDisclaimer:
       "Lodestar is a concept-stage brief. No team, contracts, accreditations, customers, or pilots have been claimed or implied. All figures are public, dated, and sourced. This page is not a solicitation, an offer of securities, or marketing of a regulated product.",
     footerNotice:
@@ -522,6 +552,21 @@ export const dictionaries: Record<Locale, Dict> = {
     contactBody:
       "オペレーター、資本パートナー、政府関係の方を歓迎します。最初のメッセージはピッチではなく、簡潔なご紹介でお願いします。",
     contactEmailLabel: "メール",
+    contactForm: {
+      name: "お名前",
+      namePlaceholder: "氏名",
+      email: "メールアドレス",
+      emailPlaceholder: "you@example.com",
+      affiliation: "ご所属",
+      affiliationPlaceholder: "組織・ファンド・部署(任意)",
+      message: "メッセージ",
+      messagePlaceholder: "Lodestar に関心を持たれた背景を簡潔にお書きください",
+      submit: "送信",
+      sending: "送信中…",
+      success: "受信しました。追ってご連絡いたします。",
+      error: "送信に失敗しました。再度お試しいただくか、直接メールしてください。",
+      fallback: "または直接メール:",
+    },
     conceptDisclaimer:
       "Lodestar はコンセプト段階のブリーフです。チーム、契約、認定、顧客、パイロットの存在は一切主張しておらず、ほのめかしてもいません。すべての数値は公開・日付付き・出典付きです。本ページは勧誘、有価証券の募集、規制対象商品のマーケティングのいずれでもありません。",
     footerNotice:
