@@ -147,7 +147,6 @@ body::before {
     grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
     column-gap: clamp(28px, 4vw, 48px);
   }
-  .hero-badge,
   .hero-title {
     grid-column: 1 / -1;
   }
