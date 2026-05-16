@@ -621,6 +621,7 @@ ul.bullets strong { color: var(--fg); font-weight: 600; }
 
 .hero-video {
   margin: 0;
+  align-self: start;
 }
 
 /* ===== Demo ===== */
