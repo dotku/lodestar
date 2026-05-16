@@ -139,17 +139,24 @@ body::before {
   position: relative;
   display: grid;
   grid-template-columns: 1fr;
-  gap: clamp(24px, 4vw, 40px);
+  gap: clamp(20px, 3vw, 32px);
 }
 
 @media (min-width: 880px) {
   .hero {
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-    align-items: center;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: clamp(28px, 4vw, 48px);
+  }
+  .hero-badge,
+  .hero-title {
+    grid-column: 1 / -1;
+  }
+  .hero-aside {
+    align-self: center;
   }
 }
 
-.hero-text { min-width: 0; }
+.hero-aside { min-width: 0; }
 
 .hero-badge {
   display: inline-flex;

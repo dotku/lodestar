@@ -72,9 +72,21 @@ export default async function HomePage({
       </nav>
 
       <header className="hero">
-        <div className="hero-text">
-          <span className="hero-badge">{dict.heroBadge}</span>
-          <h1 className="hero-title">{dict.heroTitle}</h1>
+        <span className="hero-badge">{dict.heroBadge}</span>
+        <h1 className="hero-title">{dict.heroTitle}</h1>
+        <figure className="hero-video">
+          <video
+            src={videos.hero.src}
+            poster={videos.hero.poster}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            aria-hidden="true"
+          />
+        </figure>
+        <div className="hero-aside">
           <p className="hero-subtitle">{dict.heroSubtitle}</p>
           <div className="hero-pills">
             {dict.heroPills.map((p) => (
@@ -89,18 +101,6 @@ export default async function HomePage({
             <a className="btn" href="#problem">{dict.ctaSecondary}</a>
           </div>
         </div>
-        <figure className="hero-video">
-          <video
-            src={videos.hero.src}
-            poster={videos.hero.poster}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            aria-hidden="true"
-          />
-        </figure>
       </header>
 
       <section className="block" id="problem">
