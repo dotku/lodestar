@@ -1,27 +1,35 @@
 // Fetches an already-submitted Seedance task by ID, downloads the MP4.
 // Usage:  node scripts/fetch-video.mjs <slug> <task_id>
+//
+// SEEDANCE_API_KEY lives in ~/dev/x-post-scheduler/.env.local (not in
+// lodestar's runtime env). Script falls through to that file if needed.
 
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
+import { homedir } from "node:os";
 import { Buffer } from "node:buffer";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
 
-const envPath = join(ROOT, ".env.local");
-if (existsSync(envPath)) {
-  const raw = readFileSync(envPath, "utf8");
+function loadEnvFile(path) {
+  if (!existsSync(path)) return;
+  const raw = readFileSync(path, "utf8");
   for (const line of raw.split("\n")) {
     const m = line.match(/^\s*([A-Z0-9_]+)\s*=\s*(.*)$/);
     if (!m) continue;
     if (!process.env[m[1]]) process.env[m[1]] = m[2].replace(/^"|"$/g, "");
   }
 }
+loadEnvFile(join(ROOT, ".env.local"));
+loadEnvFile(join(homedir(), "dev", "x-post-scheduler", ".env.local"));
 
 const SEEDANCE_API_KEY = process.env.SEEDANCE_API_KEY;
 if (!SEEDANCE_API_KEY) {
-  console.error("Missing SEEDANCE_API_KEY");
+  console.error(
+    "Missing SEEDANCE_API_KEY. Set in ~/dev/x-post-scheduler/.env.local or export it.",
+  );
   process.exit(1);
 }
 

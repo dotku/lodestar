@@ -5,29 +5,41 @@
 //   node scripts/generate-video.mjs demo-intro
 //
 // Output: public/videos/<slug>.mp4 (+ <slug>.poster.jpg if a poster URL is returned).
+//
+// SEEDANCE_API_KEY is NOT part of Lodestar's runtime env. It lives in
+// ~/dev/x-post-scheduler/.env.local. This script reads from that file
+// (or the current shell env if exported) so you don't have to duplicate
+// the key here.
 
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
+import { homedir } from "node:os";
 import { Buffer } from "node:buffer";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
 
 // --- env loader (no dependency on dotenv) --------------------------------
-const envPath = join(ROOT, ".env.local");
-if (existsSync(envPath)) {
-  const raw = readFileSync(envPath, "utf8");
+function loadEnvFile(path) {
+  if (!existsSync(path)) return;
+  const raw = readFileSync(path, "utf8");
   for (const line of raw.split("\n")) {
     const m = line.match(/^\s*([A-Z0-9_]+)\s*=\s*(.*)$/);
     if (!m) continue;
     if (!process.env[m[1]]) process.env[m[1]] = m[2].replace(/^"|"$/g, "");
   }
 }
+// Local lodestar .env.local (in case the key was added here ad hoc),
+// then fall through to x-post-scheduler where the key actually lives.
+loadEnvFile(join(ROOT, ".env.local"));
+loadEnvFile(join(homedir(), "dev", "x-post-scheduler", ".env.local"));
 
 const SEEDANCE_API_KEY = process.env.SEEDANCE_API_KEY;
 if (!SEEDANCE_API_KEY) {
-  console.error("SEEDANCE_API_KEY not found in .env.local or environment.");
+  console.error(
+    "SEEDANCE_API_KEY not found. Set it in ~/dev/x-post-scheduler/.env.local or export it.",
+  );
   process.exit(1);
 }
 const BASE = "https://seedanceapi.org/v1";
