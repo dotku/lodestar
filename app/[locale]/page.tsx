@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { locales, getDict, type Locale } from "../../lib/i18n";
 import { LodestarDemo } from "../../components/LodestarDemo";
+import { BrandMark } from "../../components/BrandMark";
 
 type Params = { locale: string };
 
@@ -45,7 +46,9 @@ export default async function HomePage({
     <main className="shell">
       <nav className="nav">
         <div className="brand">
-          <span className="brand-mark">L</span>
+          <span className="brand-mark">
+            <BrandMark />
+          </span>
           <span className="brand-name">Lodestar</span>
           <span className="brand-tag">{dict.navTagline}</span>
         </div>

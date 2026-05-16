@@ -89,10 +89,6 @@ body::before {
     linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
   display: grid;
   place-items: center;
-  color: #06070b;
-  font-weight: 800;
-  font-size: 0.95rem;
-  font-family: var(--font-mono);
   box-shadow: 0 0 24px rgba(124, 140, 255, 0.25);
 }
 

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { locales, getDict, type Locale } from "../../../lib/i18n";
+import { BrandMark } from "../../../components/BrandMark";
 
 type Params = { locale: string };
 
@@ -39,7 +40,9 @@ export default async function MarketPage({
     <main className="shell">
       <nav className="nav">
         <Link href={`/${locale}`} className="brand">
-          <span className="brand-mark">L</span>
+          <span className="brand-mark">
+            <BrandMark />
+          </span>
           <span className="brand-name">Lodestar</span>
         </Link>
         <div
