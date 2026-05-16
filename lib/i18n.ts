@@ -542,7 +542,7 @@ export function getDict(locale: string): Dict {
 
 const LOCALE_LABELS: Record<Locale, string> = {
   en: "EN",
-  ja: "文",
+  ja: "日",
 };
 
 export function displayLocale(l: string): string {
