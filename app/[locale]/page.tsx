@@ -114,9 +114,12 @@ export default async function HomePage({
         <h2 className="section-title">{dict.market.title}</h2>
         <p className="section-body">{dict.market.body}</p>
         <div className="note">{dict.market.note}</div>
-        <p style={{ marginTop: 18 }}>
+        <p style={{ marginTop: 18, display: "flex", gap: 12, flexWrap: "wrap" }}>
           <Link href={`/${locale}/market`} className="btn">
             {dict.marketSeeAll}
+          </Link>
+          <Link href={`/${locale}/insights`} className="btn">
+            Engineering insights →
           </Link>
         </p>
       </section>
