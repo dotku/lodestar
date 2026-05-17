@@ -54,18 +54,33 @@ export default async function HomePage({
           <span className="brand-name">Lodestar</span>
           <span className="brand-tag">{dict.navTagline}</span>
         </div>
-        {(() => {
-          const next = locales.find((l) => l !== locale) ?? locales[0];
-          return (
-            <Link
-              href={`/${next}`}
-              className="lang-toggle"
-              aria-label={`${dict.langLabel}: ${displayLocale(next)}`}
-            >
-              {displayLocale(next)}
-            </Link>
-          );
-        })()}
+        <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+          <Link
+            href={`/${locale}/insights`}
+            className="nav-link"
+            style={{
+              color: "inherit",
+              textDecoration: "none",
+              fontSize: 14,
+              fontWeight: 500,
+              opacity: 0.85,
+            }}
+          >
+            Insights
+          </Link>
+          {(() => {
+            const next = locales.find((l) => l !== locale) ?? locales[0];
+            return (
+              <Link
+                href={`/${next}`}
+                className="lang-toggle"
+                aria-label={`${dict.langLabel}: ${displayLocale(next)}`}
+              >
+                {displayLocale(next)}
+              </Link>
+            );
+          })()}
+        </div>
       </nav>
 
       <header className="hero">

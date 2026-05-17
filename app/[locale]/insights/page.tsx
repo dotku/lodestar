@@ -17,6 +17,15 @@ const CATEGORY_LABEL: Record<string, string> = {
   "Sensor Fusion": "Sensor Fusion",
   "Real-time": "Real-Time Systems",
   "Edge AI": "Edge Inference",
+  Radar: "Radar",
+  Autonomy: "Autonomy",
+  Networking: "Networking",
+  EW: "Electronic Warfare",
+  Security: "Security",
+  "Vehicle Systems": "Vehicle Systems",
+  "Predictive Maintenance": "Predictive Maintenance",
+  "Sensor Integration": "Sensor Integration",
+  "Power Systems": "Power Systems",
 };
 
 export default async function InsightsIndex({

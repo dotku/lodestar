@@ -233,6 +233,15 @@ const CATEGORY_LABEL: Record<string, string> = {
   "Sensor Fusion": "Sensor Fusion",
   "Real-time": "Real-Time Systems",
   "Edge AI": "Edge Inference",
+  Radar: "Radar",
+  Autonomy: "Autonomy",
+  Networking: "Networking",
+  EW: "Electronic Warfare",
+  Security: "Security",
+  "Vehicle Systems": "Vehicle Systems",
+  "Predictive Maintenance": "Predictive Maintenance",
+  "Sensor Integration": "Sensor Integration",
+  "Power Systems": "Power Systems",
 };
 
 export default async function InsightPage({
@@ -301,9 +310,37 @@ export default async function InsightPage({
         .insight-body .insight-ol { line-height: 1.7; padding-left: 24px; margin: 0 0 18px; }
         .insight-body .insight-ul li,
         .insight-body .insight-ol li { margin-bottom: 6px; }
-        .insight-body .insight-code-inline { background: var(--code-bg, #f5f5f7); padding: 2px 6px; border-radius: 4px; font-size: 0.92em; font-family: ui-monospace, SFMono-Regular, monospace; }
-        .insight-body .insight-code { background: var(--code-bg, #f5f5f7); padding: 14px 18px; border-radius: 8px; overflow-x: auto; font-size: 0.85em; line-height: 1.5; margin: 0 0 18px; }
-        .insight-body .insight-code code { background: none; padding: 0; font-family: ui-monospace, SFMono-Regular, monospace; }
+        /* Inline code — distinct background + soft border so the token reads */
+        /* clearly on the page's white surface (the prior pale-gray fill was */
+        /* almost invisible against the body background).                    */
+        .insight-body .insight-code-inline {
+          background: #fff4d6;
+          border: 1px solid #f0d896;
+          color: #6b4f00;
+          padding: 1px 6px;
+          border-radius: 4px;
+          font-size: 0.9em;
+          font-family: ui-monospace, SFMono-Regular, monospace;
+        }
+        /* Code blocks (ASCII diagrams, shell snippets) — dark slate surface */
+        /* with light text so the block has clear visual weight and the text */
+        /* contrast is well above WCAG AA.                                   */
+        .insight-body .insight-code {
+          background: #1f2430;
+          color: #e8eaf0;
+          padding: 16px 20px;
+          border-radius: 8px;
+          overflow-x: auto;
+          font-size: 0.85em;
+          line-height: 1.55;
+          margin: 0 0 20px;
+        }
+        .insight-body .insight-code code {
+          background: none;
+          padding: 0;
+          color: inherit;
+          font-family: ui-monospace, SFMono-Regular, monospace;
+        }
         .insight-body .insight-table-wrap { overflow-x: auto; margin: 0 0 18px; }
         .insight-body .insight-table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
         .insight-body .insight-table th,
